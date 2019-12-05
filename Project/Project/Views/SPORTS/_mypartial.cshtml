@@ -1,0 +1,50 @@
+﻿@model Project.Models.Sport_tournamentlist
+@{
+    Layout = null;
+}
+
+
+<text>@ViewBag.PSP</text>
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <table class="table-responsive">
+            <tr>
+                <th>
+                    DATE:
+                </th>
+                <th>
+                    TIME:
+                </th>
+                <th>
+                    VENUE:
+                </th>
+            </tr>
+            @foreach (var item in ViewBag.ASQ)
+            {
+                <tr>
+
+                    <td>
+                        <text>@item.sport_date</text>
+                    </td>
+                    <td>
+                        <text>@item.sport_time</text>
+                    </td>
+                    <td>
+                        <text>@item.sport_venue</text>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Register as Team", "addteam", new { id = @item.sports_evid }) |
+                        @Html.ActionLink("Register Individually", "addini", new { id = @item.sports_evid })
+                    </td>
+                </tr>
+            }
+
+
+
+        </table>
+    </div>
+}
+

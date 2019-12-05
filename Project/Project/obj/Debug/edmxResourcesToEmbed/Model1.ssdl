@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_fullname" Type="varchar" MaxLength="50" />
+    <Property Name="admin_password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Cultural_eventlist">
+    <Key>
+      <PropertyRef Name="cul_evid" />
+    </Key>
+    <Property Name="cul_evid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="event_name" Type="varchar" MaxLength="34" />
+    <Property Name="event_date" Type="date" />
+    <Property Name="event_time" Type="time" Precision="7" />
+    <Property Name="event_venue" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Cultural_reg">
+    <Key>
+      <PropertyRef Name="cultural_id" />
+    </Key>
+    <Property Name="cultural_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="event_name" Type="varchar" MaxLength="20" />
+    <Property Name="eventid" Type="int" />
+    <Property Name="userid" Type="int" />
+  </EntityType>
+  <EntityType Name="Sport_tournamentlist">
+    <Key>
+      <PropertyRef Name="sports_evid" />
+    </Key>
+    <Property Name="sports_evid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sport_name" Type="varchar" MaxLength="30" />
+    <Property Name="sport_date" Type="date" />
+    <Property Name="sport_time" Type="time" Precision="7" />
+    <Property Name="sport_venue" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Sports_reg">
+    <Key>
+      <PropertyRef Name="sports_id" />
+    </Key>
+    <Property Name="sports_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sport_name" Type="varchar" MaxLength="20" />
+    <Property Name="sport_id" Type="int" />
+    <Property Name="userid" Type="int" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="t_no" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="40" />
+    <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_password" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__Cultural___event__32E0915F">
+    <End Role="Cultural_eventlist" Type="Self.Cultural_eventlist" Multiplicity="0..1" />
+    <End Role="Cultural_reg" Type="Self.Cultural_reg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultural_eventlist">
+        <PropertyRef Name="cul_evid" />
+      </Principal>
+      <Dependent Role="Cultural_reg">
+        <PropertyRef Name="eventid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cultural___useri__33D4B598">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Cultural_reg" Type="Self.Cultural_reg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="Cultural_reg">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sports_re__sport__38996AB5">
+    <End Role="Sport_tournamentlist" Type="Self.Sport_tournamentlist" Multiplicity="0..1" />
+    <End Role="Sports_reg" Type="Self.Sports_reg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sport_tournamentlist">
+        <PropertyRef Name="sports_evid" />
+      </Principal>
+      <Dependent Role="Sports_reg">
+        <PropertyRef Name="sport_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sports_re__useri__398D8EEE">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Sports_reg" Type="Self.Sports_reg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="Sports_reg">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cultural_eventlist" EntityType="Self.Cultural_eventlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cultural_reg" EntityType="Self.Cultural_reg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sport_tournamentlist" EntityType="Self.Sport_tournamentlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sports_reg" EntityType="Self.Sports_reg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cultural___event__32E0915F" Association="Self.FK__Cultural___event__32E0915F">
+      <End Role="Cultural_eventlist" EntitySet="Cultural_eventlist" />
+      <End Role="Cultural_reg" EntitySet="Cultural_reg" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cultural___useri__33D4B598" Association="Self.FK__Cultural___useri__33D4B598">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Cultural_reg" EntitySet="Cultural_reg" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sports_re__sport__38996AB5" Association="Self.FK__Sports_re__sport__38996AB5">
+      <End Role="Sport_tournamentlist" EntitySet="Sport_tournamentlist" />
+      <End Role="Sports_reg" EntitySet="Sports_reg" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sports_re__useri__398D8EEE" Association="Self.FK__Sports_re__useri__398D8EEE">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sports_reg" EntitySet="Sports_reg" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

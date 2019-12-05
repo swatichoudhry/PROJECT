@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "UserLogin";
+    
+}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                @Html.ActionLink("DXC HAPPENINGS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li>@Html.ActionLink("SPORTS", "Sports", "SPORTS")</li>
+                    <li>@Html.ActionLink("CULTURALS", "Culturals", "CULTURALS")</li>
+
+                    <li align="right" class="dropdown" style="margin-left:500px;">
+                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>@Session["username"]<span class="caret"></span>
+                        </a>
+                       <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("My Account", "UserLogin", "Home")</li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                        </ul>
+                    </li>                  
+                </ul>
+
+            </div>
+        </div>
+   </div>
+<h3>Welcome, @Session["username"]</h3>
+
+

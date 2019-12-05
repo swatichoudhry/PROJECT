@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="ProjectModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="admin_fullname" ColumnName="admin_fullname" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cultural_eventlist">
+      <EntityTypeMapping TypeName="ProjectModel.Cultural_eventlist">
+        <MappingFragment StoreEntitySet="Cultural_eventlist">
+          <ScalarProperty Name="cul_evid" ColumnName="cul_evid" />
+          <ScalarProperty Name="event_name" ColumnName="event_name" />
+          <ScalarProperty Name="event_date" ColumnName="event_date" />
+          <ScalarProperty Name="event_time" ColumnName="event_time" />
+          <ScalarProperty Name="event_venue" ColumnName="event_venue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cultural_reg">
+      <EntityTypeMapping TypeName="ProjectModel.Cultural_reg">
+        <MappingFragment StoreEntitySet="Cultural_reg">
+          <ScalarProperty Name="cultural_id" ColumnName="cultural_id" />
+          <ScalarProperty Name="event_name" ColumnName="event_name" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sport_tournamentlist">
+      <EntityTypeMapping TypeName="ProjectModel.Sport_tournamentlist">
+        <MappingFragment StoreEntitySet="Sport_tournamentlist">
+          <ScalarProperty Name="sports_evid" ColumnName="sports_evid" />
+          <ScalarProperty Name="sport_name" ColumnName="sport_name" />
+          <ScalarProperty Name="sport_date" ColumnName="sport_date" />
+          <ScalarProperty Name="sport_time" ColumnName="sport_time" />
+          <ScalarProperty Name="sport_venue" ColumnName="sport_venue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sports_reg">
+      <EntityTypeMapping TypeName="ProjectModel.Sports_reg">
+        <MappingFragment StoreEntitySet="Sports_reg">
+          <ScalarProperty Name="sports_id" ColumnName="sports_id" />
+          <ScalarProperty Name="sport_name" ColumnName="sport_name" />
+          <ScalarProperty Name="sport_id" ColumnName="sport_id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="ProjectModel.Team">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="t_no" ColumnName="t_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ProjectModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
