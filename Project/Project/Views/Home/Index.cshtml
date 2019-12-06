@@ -1,109 +1,133 @@
-﻿
+﻿ <style>
+    .divTable {
+        display: table;
+        width: 100%;
+        background-color: gray;
+        border: 1px solid #666666;
+        border-spacing: 5px; 
+       
+    }
+    .divRow
+    {
+       display:table-row;
+        height:100px;
+    }
+    .divCell
+    {
+        float:left;
+        display:table-column;
+        width:300px;
+        background-color:white;
+    }
+</style>
 <title>DXC Happenings!</title>
 @*<style>
-    body{
-        background-image: url('/Images/background.jpg')
-    }
-</style>*@
+        body{
+            background-image: url('/Images/background.jpg')
+        }
+    </style>*@
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<head>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="height:50px">
 
-        <div class="container">
-            <div class="navbar-header" style="display:inline-flex">
-                <a> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
-                &emsp;
-                @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse" style="display:inline-flex">
-                <ul class="nav navbar-nav">
-                    <li align="left" class="dropdown" style="margin-left:750px;">
-                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("User", "Login", "Home")</li>
+<div class="navbar navbar-inverse navbar-fixed-top" style="height:50px">
+    <div class="container">
+        <div class="navbar-header" style="display:inline-flex">
+            <a> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
+            &emsp;
+            @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse" style="display:inline-flex">
+            <ul class="nav navbar-nav">
+                <li align="left" class="dropdown" style="margin-left:750px;">
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("User", "Login", "Home")</li>
 
-                            <li>@Html.ActionLink("Admin", "LoginAdmin", "Home")</li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
+                        <li>@Html.ActionLink("Admin", "LoginAdmin", "Home")</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
-</head>  
-        @*<header>
-            <p style="font-family:'Baskerville Old Face';color:black;font-size:50px;text-align:center">DXC HAPPENINGS!</p>
-            <p style="font-family:'Baskerville Old Face';color:black;font-size:20px;text-align:center">One place for all the fun activites.</p>
-        </header>*@
+</div>
+
+@*<header>
+        <p style="font-family:'Baskerville Old Face';color:black;font-size:50px;text-align:center">DXC HAPPENINGS!</p>
+        <p style="font-family:'Baskerville Old Face';color:black;font-size:20px;text-align:center">One place for all the fun activites.</p>
+    </header>*@
 <body>
-    <section>
-        <div class="row" style="display:inline-flex; width:100%;height:30%;">
-            <div>
-                <div id="imageCarousel" class="carousel slide" data-interval="2000"
-                     data-ride="carousel" data-pause="hover" data-wrap="true">
-
-                    <ol class="carousel-indicators">
-                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#imageCarousel" data-slide-to="1"></li>
-                        <li data-target="#imageCarousel" data-slide-to="2"></li>
-                        <li data-target="#imageCarousel" data-slide-to="3"></li>
-                    </ol>
-
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="~/Images/image1.png" class="img-responsive">
-                            <div class="carousel-caption">
-                                <h3></h3>
-                                <p style="font-weight: bold; color:yellow;font-size:small"></p>
-                            </div>
+    <div class="divTable" >
+        <div class="divRow" >
+            <div id="imageCarousel" class="carousel slide" data-interval="2000"
+                 data-ride="carousel" data-pause="hover" data-wrap="true" >
+                <ol class="carousel-indicators">
+                    <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#imageCarousel" data-slide-to="1"></li>
+                    <li data-target="#imageCarousel" data-slide-to="2"></li>
+                    <li data-target="#imageCarousel" data-slide-to="3"></li>
+                    <li data-target="#imageCarousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="~/Images/images1.png" class="img-responsive" style="width:1500px;height:350px">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p style="font-weight: bold; color:yellow;font-size:small"></p>
                         </div>
-                        <div class="item">
-                            <img src="~/Images/image2.png" class="img-responsive">
-                            <div class="carousel-caption">
-                                <h3></h3>
-                                <p style="font-weight: bold; color:yellow;font-size:small"></p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="~/Images/image1.png" class="img-responsive">
-                            <div class="carousel-caption">
-                                <h3></h3>
-                                <p style="font-weight: bold; color:yellow;font-size:small"></p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="~/Images/image2.png" class="img-responsive">
-                            <div class="carousel-caption">
-                                <h3></h3>
-                                <p style="font-weight: bold; color:yellow;font-size:small"></p>
-                            </div>
-                        </div>
-
                     </div>
-
-                    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
-                        <span class="glyphicon glyphicon-hand-left"></span>
-                    </a>
-                    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
-                        <span class="glyphicon glyphicon-hand-right"></span>
-                    </a>
+                    <div class="item">
+                        <img src="~/Images/images2.png" class="img-responsive" style="width:1500px;height:350px">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p style="font-weight: bold; color:yellow;font-size:small"></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Images/image3.png" class="img-responsive" style="width:1500px;height:350px">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p style="font-weight: bold; color:yellow;font-size:small"></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Images/image4.png" class="img-responsive" style="width:1500px;height:350px">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p style="font-weight: bold; color:yellow;font-size:small"></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Images/image5.png" class="img-responsive" style="width:1500px;height:350px">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p style="font-weight: bold; color:yellow;font-size:small"></p>
+                        </div>
+                    </div>
                 </div>
+                <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                    <span class="glyphicon glyphicon-hand-left"></span>
+                </a>
+                <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                    <span class="glyphicon glyphicon-hand-right"></span>
+                </a>
             </div>
-
         </div>
-
-
-    </section>
-
-
+        <div class="divRow">
+            <div class="divCell"><img src="~/Images/image1.png" /></div>
+            <div class="divCell"><img src="~/Images/image1.png" /></div>
+            <div class="divCell"><img src="~/Images/image1.png" /></div>
+            <div class="divCell"><img src="~/Images/image1.png" /></div>
+      
+        </div>
+    </div>
 </body>
-    <footer>
-        <p style="background-color: black; font-weight: bold; color:lightgray; text-align: center; font-style: oblique">© @DateTime.Now.ToLocalTime()</p>
-    </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-    </script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 

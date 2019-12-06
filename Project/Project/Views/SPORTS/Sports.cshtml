@@ -4,38 +4,38 @@
 }
 
 <h2>Index</h2>
+
 <div class="dropdown">
     @Html.DropDownList("CategoryID", ViewBag.Sport as SelectList, "select sport")
-</div>
+</div>  
 
 <div id="divPartialView">
-  
-</div>
 
-@Html.ActionLink("Teams","maketeams","SPORTS")
+</div>   
 
 
- <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#CategoryID").change(function () {
-            var Cid = document.getElementById("CategoryID").value;
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#CategoryID").change(function () {
+                var Cid = document.getElementById("CategoryID").value;
 
-             // alert(Cid)
+                // alert(Cid)
 
-            $.ajax({
-                type: "post",
-                url: "/SPORTS/_mypartial?Cid=" + Cid,
-                contentType: "html",
-                success: function (response) {
-                    //     debugger
-                   //            console.log(response);
-                    $("#divPartialView").empty();
-                    $("#divPartialView").append(response)
-                }
-            })
+                $.ajax({
+                    type: "post",
+                    url: "/SPORTS/_mypartial?Cid=" + Cid,
+                    contentType: "html",
+                    success: function (response) {
+                        //     debugger
+                        //            console.log(response);
+                        $("#divPartialView").empty();
+                        $("#divPartialView").append(response)
+                    }
+                })               
+            })        
         })
-    })
 
-</script>
+    </script>
+

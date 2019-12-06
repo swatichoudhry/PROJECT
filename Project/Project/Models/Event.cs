@@ -12,12 +12,9 @@ namespace Project.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Team
+    public partial class Event
     {
-        public int tid { get; set; }
-        public Nullable<int> sp_id { get; set; }
-        public Nullable<int> t_no { get; set; }
-    
-        public virtual Sport_tournamentlist Sport_tournamentlist { get; set; }
+        public int event_id { get; set; }
+        public string event_name { get; set; }
     }
 }

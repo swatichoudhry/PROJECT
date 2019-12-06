@@ -1,0 +1,16 @@
+﻿@{
+    int noofTeam = ViewBag.Message;
+    int[,] twod = ViewBag.RobinFix;
+}
+
+<h3>Happy a happy Gaming</h3>
+@for (int i = 0; i < noofTeam; i++)
+{
+    <p>For team @i</p>
+    <p>
+        @for (int j = 0; j < @noofTeam - 1; j++)
+        {
+            <span> @i vs @twod[i, j] | </span>
+        }
+    </p>
+}

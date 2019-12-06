@@ -32,5 +32,6 @@ namespace Project.Models
         public virtual DbSet<Sports_reg> Sports_reg { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
     }
 }

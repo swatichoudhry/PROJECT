@@ -20,6 +20,7 @@ namespace Project.Controllers
         }
         public ActionResult _mypartial(int Cid)
         {
+            
             List<Sport_tournamentlist> modelll = entity.Sport_tournamentlist.Where(d => d.sports_evid == Cid).ToList();
             ViewBag.ASQ = modelll;
             ViewBag.PSP = modelll[0].sports_evid;
@@ -36,14 +37,16 @@ namespace Project.Controllers
             return RedirectToAction("Sports");
         }
 
-
-        public ActionResult addini(int id)
+        public PartialViewResult addini(int id)
         {
-            Sports_reg sports_Reg = new Sports_reg();
+            
+
+            Sports_reg sports_Reg = new Sports_reg();                    
             var cd = Session["username"].ToString();
             List<User> qw = entity.Users.Where(x => x.username == cd).ToList();
             var ew = qw[0].uid;
-            if (entity.Sports_reg.Any(d => d.sport_id.Equals(id) && d.userid.Equals(ew)))
+            
+            if (entity.Sports_reg.Any(d => d.sport_id == id && d.userid == ew))
             {
                 ViewBag.Message = "Can't Register for same sport twice";
             }
@@ -54,26 +57,11 @@ namespace Project.Controllers
                 var av = entity.Sport_tournamentlist.Find(id);
                 sports_Reg.sport_name = av.sport_name;
                 entity.Sports_reg.Add(sports_Reg);
+                ViewBag.Message = "Registered!";
                 entity.SaveChanges();
-                return RedirectToAction("Sports");
             }
-            return View();
-        }
 
-
-        public ActionResult maketeams()
-        {
-            List<Sports_reg> li = entity.Sports_reg.Where(x => x.sport_id == 558).ToList();
-            int count = li.Count();
-            ViewBag.message = count;
-            int y = count / 11;
-            ViewBag.message1 = y;
-
-            //for(int i = 0; i < count; i++)
-            //{
-
-            //}
-            return View();
+            return PartialView("addini");
         }
 
 

@@ -48,5 +48,15 @@ namespace Project.Controllers
         }
 
 
+        public ActionResult _mypartial(int Cid)
+        {
+
+            List<Cultural_eventlist> modelll = entity.Cultural_eventlist.Where(d => d.cul_evid == Cid).ToList();
+            ViewBag.ASQ = modelll;
+            ViewBag.PSP = modelll[0].cul_evid;
+            return PartialView("_mypartial");
+        }
+
+
     }
 }

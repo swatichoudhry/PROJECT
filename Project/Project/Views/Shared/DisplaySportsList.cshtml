@@ -1,0 +1,54 @@
+﻿
+@Html.DropDownList("listid", ViewBag.Sportslist as SelectList, "--select event--", new { @class = "form-control" })
+
+@*@{
+        Html.RenderPartial("ListofParticipants");
+    }*@
+
+<div id="sports_evid1">
+
+</div>
+@if (@ViewBag.Message == "sport")
+{
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#listid").change(function () {
+            var sportseventid = $(this).val();
+
+
+            $.ajax({
+                type: "post",
+                url: "/Admin/ListofParticipants?sportsid=" + sportseventid,
+                contentType: "html",
+                success: function (response) {
+                    $("#sports_evid1").empty();
+                    $("#sports_evid1").append(response)
+                }
+            })
+        })
+    })
+    </script>
+}
+@if (@ViewBag.Message == "event")
+{
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#listid").change(function () {
+            var eventid = $(this).val();
+
+            //alert(eventid)
+            $.ajax({
+                type: "post",
+                url: "/Admin/ListofParticipants11?event_id=" +eventid,
+                contentType: "html",
+                success: function (response) {
+                    $("#sports_evid1").empty();
+                    $("#sports_evid1").append(response)
+                }
+            })
+        })
+    })
+    </script>
+}

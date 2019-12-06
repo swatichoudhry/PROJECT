@@ -1,4 +1,4 @@
-﻿@model Project.Models.Sport_tournamentlist
+﻿@model Project.Models.Cultural_eventlist
 @{
     Layout = null;
 }
@@ -27,19 +27,19 @@
                 <tr>
 
                     <td>
-                        <text>@item.sport_date</text>
+                        <text>@item.event_name</text>
                     </td>
                     <td>
-                        <text>@item.sport_time</text>
+                        <text>@item.event_time</text>
                     </td>
                     <td>
-                        <text>@item.sport_venue</text>
+                        <text>@item.event_venue</text>
                     </td>
                     <td>
 
-                        @Html.ActionLink("Register as Team", "addteam", new { id = @item.sports_evid },new { @class = "GetResult"})
+                        @Html.ActionLink("Register as Team", "addteam", new { id = @item.cul_evid }, new { @class = "GetResult" })
 
-                        @Html.ActionLink("Register Individually", "addini", new { id = @item.sports_evid },new { @class = "GetResult"})
+                        @Html.ActionLink("Register Individually", "addini", new { id = @item.cul_evid }, new { @class = "GetResult" })
 
 
                     </td>
@@ -49,6 +49,7 @@
         </table>
     </div>
 }
+
 
 
 

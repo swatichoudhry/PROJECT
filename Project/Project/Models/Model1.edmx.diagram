@@ -17,6 +17,7 @@
         <AssociationConnector Association="ProjectModel1.FK__Sports_re__sport__38996AB5" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectModel1.FK__Sports_re__useri__398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectModel1.FK__Teams__sp_id__49C3F6B7" />
+        <EntityTypeShape EntityType="ProjectModel1.Event" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

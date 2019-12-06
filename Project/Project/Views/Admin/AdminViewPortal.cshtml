@@ -1,0 +1,35 @@
+﻿@model Project.Models.AdminViewClass
+    @using Project.Models
+
+@{
+    ViewBag.Title = "AdminViewPortal";
+}
+
+<h2>AdminViewPortal</h2>
+
+@if (ViewBag.EventList != null)
+{
+    @Html.DropDownListFor(m => m.event_id, ViewBag.EventList as SelectList, "--Select Event--", new { @class = "form-control" })
+}
+
+<div id="sports_evid">
+
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#event_id").change(function () {
+            var eventid = $(this).val();
+            $.ajax({
+                type: "post",
+                url: "/Admin/GetSportsList?SLid=" + eventid,
+                contentType: "html",
+                success: function (response) {
+                    $("#sports_evid").empty();
+                    $("#sports_evid").append(response)
+                }
+            })
+        })
+    })
+</script>

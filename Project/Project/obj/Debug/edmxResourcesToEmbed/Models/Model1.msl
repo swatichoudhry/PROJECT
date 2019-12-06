@@ -55,6 +55,7 @@
     <EntitySetMapping Name="Teams">
       <EntityTypeMapping TypeName="ProjectModel1.Team">
         <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="t_no" ColumnName="t_no" />
           <ScalarProperty Name="sp_id" ColumnName="sp_id" />
           <ScalarProperty Name="tid" ColumnName="tid" />
         </MappingFragment>
@@ -66,6 +67,14 @@
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="uid" ColumnName="uid" />
           <ScalarProperty Name="u_password" ColumnName="u_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="ProjectModel1.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="event_name" ColumnName="event_name" />
+          <ScalarProperty Name="event_id" ColumnName="event_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

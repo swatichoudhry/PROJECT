@@ -59,6 +59,7 @@
     <Property Name="tid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="sp_id" Type="Int32" />
     <NavigationProperty Name="Sport_tournamentlist" Relationship="ProjectModel1.FK__Teams__sp_id__49C3F6B7" FromRole="Team" ToRole="Sport_tournamentlist" />
+    <Property Name="t_no" Type="Int32" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -146,6 +147,7 @@
       <End Role="Sport_tournamentlist" EntitySet="Sport_tournamentlist" />
       <End Role="Team" EntitySet="Teams" />
     </AssociationSet>
+    <EntitySet Name="Events" EntityType="ProjectModel1.Event" />
   </EntityContainer>
   <Association Name="FK__Teams__sp_id__49C3F6B7">
     <End Type="ProjectModel1.Sport_tournamentlist" Role="Sport_tournamentlist" Multiplicity="0..1" />
@@ -159,4 +161,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="event_id" />
+    </Key>
+    <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="event_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

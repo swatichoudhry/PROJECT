@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="aid" />
           </Key>
-          <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="admin_fullname" Type="varchar" MaxLength="50" />
           <Property Name="admin_password" Type="varchar" MaxLength="20" />
         </EntityType>
@@ -31,6 +31,13 @@
           <Property Name="event_name" Type="varchar" MaxLength="20" />
           <Property Name="eventid" Type="int" />
           <Property Name="userid" Type="int" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="event_name" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Sport_tournamentlist">
           <Key>
@@ -57,13 +64,14 @@
           </Key>
           <Property Name="tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sp_id" Type="int" />
+          <Property Name="t_no" Type="int" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="uid" />
           </Key>
           <Property Name="username" Type="nvarchar" MaxLength="40" />
-          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="u_password" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK__Cultural___event__32E0915F">
@@ -75,18 +83,6 @@
             </Principal>
             <Dependent Role="Cultural_reg">
               <PropertyRef Name="eventid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Cultural___useri__33D4B598">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="Cultural_reg" Type="Self.Cultural_reg" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="uid" />
-            </Principal>
-            <Dependent Role="Cultural_reg">
-              <PropertyRef Name="userid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -102,7 +98,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Teams__sp_id__49C3F6B7">
+        <Association Name="FK__Teams__sp_id__6B24EA82">
           <End Role="Sport_tournamentlist" Type="Self.Sport_tournamentlist" Multiplicity="0..1" />
           <End Role="Teams" Type="Self.Teams" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,6 +114,7 @@
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cultural_eventlist" EntityType="Self.Cultural_eventlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cultural_reg" EntityType="Self.Cultural_reg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sport_tournamentlist" EntityType="Self.Sport_tournamentlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sports_reg" EntityType="Self.Sports_reg" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
@@ -126,15 +123,11 @@
             <End Role="Cultural_eventlist" EntitySet="Cultural_eventlist" />
             <End Role="Cultural_reg" EntitySet="Cultural_reg" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cultural___useri__33D4B598" Association="Self.FK__Cultural___useri__33D4B598">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Cultural_reg" EntitySet="Cultural_reg" />
-          </AssociationSet>
           <AssociationSet Name="FK__Sports_re__sport__38996AB5" Association="Self.FK__Sports_re__sport__38996AB5">
             <End Role="Sport_tournamentlist" EntitySet="Sport_tournamentlist" />
             <End Role="Sports_reg" EntitySet="Sports_reg" />
           </AssociationSet>
-          <AssociationSet Name="FK__Teams__sp_id__49C3F6B7" Association="Self.FK__Teams__sp_id__49C3F6B7">
+          <AssociationSet Name="FK__Teams__sp_id__6B24EA82" Association="Self.FK__Teams__sp_id__6B24EA82">
             <End Role="Sport_tournamentlist" EntitySet="Sport_tournamentlist" />
             <End Role="Teams" EntitySet="Teams" />
           </AssociationSet>
@@ -202,6 +195,7 @@
           <Property Name="tid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="sp_id" Type="Int32" />
           <NavigationProperty Name="Sport_tournamentlist" Relationship="ProjectModel1.FK__Teams__sp_id__49C3F6B7" FromRole="Team" ToRole="Sport_tournamentlist" />
+          <Property Name="t_no" Type="Int32" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -289,6 +283,7 @@
             <End Role="Sport_tournamentlist" EntitySet="Sport_tournamentlist" />
             <End Role="Team" EntitySet="Teams" />
           </AssociationSet>
+          <EntitySet Name="Events" EntityType="ProjectModel1.Event" />
         </EntityContainer>
         <Association Name="FK__Teams__sp_id__49C3F6B7">
           <End Type="ProjectModel1.Sport_tournamentlist" Role="Sport_tournamentlist" Multiplicity="0..1" />
@@ -302,6 +297,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="event_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -362,6 +364,7 @@
           <EntitySetMapping Name="Teams">
             <EntityTypeMapping TypeName="ProjectModel1.Team">
               <MappingFragment StoreEntitySet="Teams">
+                <ScalarProperty Name="t_no" ColumnName="t_no" />
                 <ScalarProperty Name="sp_id" ColumnName="sp_id" />
                 <ScalarProperty Name="tid" ColumnName="tid" />
               </MappingFragment>
@@ -373,6 +376,14 @@
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="uid" ColumnName="uid" />
                 <ScalarProperty Name="u_password" ColumnName="u_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="ProjectModel1.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="event_name" ColumnName="event_name" />
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

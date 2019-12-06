@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "CreateTeam";
+}
+
+<h2>CreateTeam</h2>
+<div class="dropdown">
+    @Html.DropDownList("ACategoryID", ViewBag.Sport as SelectList, "select sport")
+</div>
+
+<div id="divvPartialView">
+
+</div>
+
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ACategoryID").change(function () {
+            var Sid = document.getElementById("ACategoryID").value;
+            alert(Sid)
+            $.ajax({
+                type: "post",
+                url: "/Admin/_TotTeam?Sid=" + Sid,
+                contentType: "html",
+                success: function (response) {
+                    //     debugger
+                    //            console.log(response);
+                    $("#divvPartialView").empty();
+                    $("#divvPartialView").append(response)
+                }
+            })
+        })
+    })
+</script>
