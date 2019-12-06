@@ -254,6 +254,7 @@
     <Content Include="Views\CULTURALS\_mypartial.cshtml" />
     <Content Include="Views\Home\AdminSport.cshtml" />
     <Content Include="Views\Home\AdminCultural.cshtml" />
+    <Content Include="Views\CULTURALS\addini.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

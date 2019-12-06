@@ -27,7 +27,7 @@
                 <tr>
 
                     <td>
-                        <text>@item.event_name</text>
+                        <text>@item.event_date</text>
                     </td>
                     <td>
                         <text>@item.event_time</text>
@@ -37,10 +37,9 @@
                     </td>
                     <td>
 
-                        @Html.ActionLink("Register as Team", "addteam", new { id = @item.cul_evid }, new { @class = "GetResult" })
+
 
                         @Html.ActionLink("Register Individually", "addini", new { id = @item.cul_evid }, new { @class = "GetResult" })
-
 
                     </td>
                 </tr>
