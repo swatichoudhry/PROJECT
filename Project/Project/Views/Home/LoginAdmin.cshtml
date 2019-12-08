@@ -1,45 +1,66 @@
 ﻿@model Project.Models.Admin
 @{
-    ViewBag.Title = "Login-Admin";
+    ViewBag.Title = "Login";
 }
- 
-<h2>Login</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/StyleSheet1.css" type="text/css" />
+</head>
+
+<title>DXC Happenings!</title>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="navbar navbar-inverse navbar-fixed-top" style="height:50px">
+    <div class="container">
+        <div class="navbar-header" style="display:inline-flex;">
+            <a href="~/Home/Index"> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
+            &emsp;
+            @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+
+    </div>
+</div>
+
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal login">
+        <h2>Login</h2>
         <h4>Admin</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.admin_fullname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.admin_fullname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.admin_fullname, "", new { @class = "text-danger" })
+            @* @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10  input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input placeholder="Admin Id" class="form-control" @Html.EditorFor(model => model.admin_fullname, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.admin_fullname, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.admin_password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.admin_password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.admin_password, "", new { @class = "text-danger" })
+        <div class="form-group ">
+            @*@Html.LabelFor(model => model.u_password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10 input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input placeholder="Password" type="password" class="form-control" @Html.EditorFor(model => model.admin_password, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.admin_password, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group  ">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Login" class="btn btn-default" />
+                <button type="submit" class="float">Login</button>
             </div>
         </div>
-        @*<div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-0">Login</button>
 
-            </div>*@
     </div>
 }
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+

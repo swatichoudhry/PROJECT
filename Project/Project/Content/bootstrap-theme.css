@@ -357,6 +357,7 @@ fieldset[disabled] .btn-danger.active {
   background-repeat: repeat-x;
   -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);
+  
 }
 .navbar-brand,
 .navbar-nav > li > a {

@@ -243,6 +243,7 @@ th {
   }
   .navbar {
     display: none;
+    background-color:black;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -4244,6 +4245,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+  color:black;
+  background-color:black;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4316,6 +4319,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
+  color:black;
 }
 .navbar-fixed-bottom {
   bottom: 0;
@@ -4665,11 +4669,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color: black;
+  border-color: black;
 }
 .navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+  color: black;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {

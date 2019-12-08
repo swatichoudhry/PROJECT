@@ -2,36 +2,38 @@
     .divTable {
         display: table;
         width: 100%;
-        background-color: gray;
-        border: 1px solid #666666;
-        border-spacing: 5px; 
+        background-color: black;
+        border: 1px solid black;
+        border-spacing: 1px; 
        
     }
     .divRow
     {
        display:table-row;
         height:100px;
+        border:1px solid black;
+
     }
     .divCell
     {
         float:left;
         display:table-column;
-        width:300px;
-        background-color:white;
+        width:274px;
+        background-color:black;
+    }
+    body{
+        background-color:black;
     }
 </style>
+
 <title>DXC Happenings!</title>
-@*<style>
-        body{
-            background-image: url('/Images/background.jpg')
-        }
-    </style>*@
+
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="navbar navbar-inverse navbar-fixed-top" style="height:50px">
     <div class="container">
-        <div class="navbar-header" style="display:inline-flex">
-            <a> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
+        <div class="navbar-header" style="display:inline-flex;">
+            <a href="~/Home/Index"> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
             &emsp;
             @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
@@ -52,10 +54,6 @@
     </div>
 </div>
 
-@*<header>
-        <p style="font-family:'Baskerville Old Face';color:black;font-size:50px;text-align:center">DXC HAPPENINGS!</p>
-        <p style="font-family:'Baskerville Old Face';color:black;font-size:20px;text-align:center">One place for all the fun activites.</p>
-    </header>*@
 <body>
     <div class="divTable" >
         <div class="divRow" >
@@ -66,39 +64,47 @@
                     <li data-target="#imageCarousel" data-slide-to="1"></li>
                     <li data-target="#imageCarousel" data-slide-to="2"></li>
                     <li data-target="#imageCarousel" data-slide-to="3"></li>
-                    <li data-target="#imageCarousel" data-slide-to="3"></li>
+                    <li data-target="#imageCarousel" data-slide-to="4"></li>
+                    <li data-target="#imageCarousel" data-slide-to="5"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="~/Images/images1.png" class="img-responsive" style="width:1500px;height:350px">
+                        <img src="~/Images/images2.png" class="img-responsive" style="width:100%;height:350px">
                         <div class="carousel-caption">
                             <h3></h3>
                             <p style="font-weight: bold; color:yellow;font-size:small"></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="~/Images/images2.png" class="img-responsive" style="width:1500px;height:350px">
+                        <img src="~/Images/basketball.jpg" class="img-responsive" style="width:100%;height:350px">
                         <div class="carousel-caption">
                             <h3></h3>
                             <p style="font-weight: bold; color:yellow;font-size:small"></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="~/Images/image3.png" class="img-responsive" style="width:1500px;height:350px">
+                        <img src="~/Images/table-tennis-design-entity-1320x720.jpg" class="img-responsive" style="width:100%;height:350px">
                         <div class="carousel-caption">
                             <h3></h3>
                             <p style="font-weight: bold; color:yellow;font-size:small"></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="~/Images/image4.png" class="img-responsive" style="width:1500px;height:350px">
+                        <img src="~/Images/c806e1923c2d7dee2a3bcfdc4fef0404.jpg" class="img-responsive" style="width:100%;height:350px">
                         <div class="carousel-caption">
                             <h3></h3>
                             <p style="font-weight: bold; color:yellow;font-size:small"></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="~/Images/image5.png" class="img-responsive" style="width:1500px;height:350px">
+                        <img src="~/Images/bg-education.jpg" class="img-responsive" style="width:100%;height:350px">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p style="font-weight: bold; color:yellow;font-size:small"></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Images/680-savitri_chicago-1449073029.jpg" class="img-responsive" style="width:100%;height:350px">
                         <div class="carousel-caption">
                             <h3></h3>
                             <p style="font-weight: bold; color:yellow;font-size:small"></p>
@@ -114,11 +120,28 @@
             </div>
         </div>
         <div class="divRow">
-            <div class="divCell"><img src="~/Images/image1.png" /></div>
-            <div class="divCell"><img src="~/Images/image1.png" /></div>
-            <div class="divCell"><img src="~/Images/image1.png" /></div>
-            <div class="divCell"><img src="~/Images/image1.png" /></div>
-      
+            <div class="divCell">
+            <a href="">
+                <img src="~/Images/911396_2-fantasy-cricket-hd-wallpapers_1930x1287_h.jpg" style="width:273px;height:350px" />
+            </a>
+            </div>
+            <div class="divCell">
+            <a href=""><img src="~/Images/tt.png" style="width:273px;height:350px" />
+                </a>
+            </div>
+            <div class="divCell">
+            <a href=""><img src="~/Images/pngtree-world-cup-soccer-match-poster-image_192903.jpg" style="width:273px;height:350px" />
+                </a>
+            </div>
+            <div class="divCell">
+            <a href=""><img src="~/Images/f73a8acac0e753aa9e1f4c321b54c21f--baskets-basketball.jpg" style="width:273px;height:350px" />
+                </a>
+            </div>
+            <div class="divCell">
+            <a href=""><img src="~/Images/DanceSilhouette1.jpg" style="width:273px;height:350px" />
+                </a>
+            </div>
+
         </div>
     </div>
 </body>

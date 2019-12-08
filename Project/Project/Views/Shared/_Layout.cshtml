@@ -1,6 +1,13 @@
 ﻿
 <!DOCTYPE html>
-<html>
+<style>
+    .navbar, .navbar-inverse {
+        background: black !important;
+        border-color: black !important;
+    }
+</style>
+
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +17,21 @@
 
     @*<script type="text/javascript">
 
-        window.history.forward();
-        function noBack() {
             window.history.forward();
-        }
-    </script>*@
-
+            function noBack() {
+                window.history.forward();
+            }
+        </script>*@
+    
 </head>
 <body>
     
-    <div class="body-content">
-        @RenderBody()
-        <hr />
+        <div class="body-content">
+            @RenderBody()
+       
+        <footer>
+            <p style="background-color: white; font-weight: bold; color:lightgray; text-align: center; font-style: oblique">© @DateTime.Now.ToLocalTime()</p>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
@@ -30,7 +40,5 @@
 </body>
 
 
-</html>
-<footer>
-    <p style="background-color: black; font-weight: bold; color:lightgray; text-align: center; font-style: oblique">© @DateTime.Now.ToLocalTime()</p>
-</footer>
+
+
