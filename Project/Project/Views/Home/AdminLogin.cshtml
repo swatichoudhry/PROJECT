@@ -1,18 +1,48 @@
-﻿
-@{
-    ViewBag.Title = "AdminLogin";
-}
-<style>
+﻿<style>
+    .sidenav {
+        height: 100%; /* Full-height: remove this if you want "auto" height */
+        width: 300px; /* Set the width of the sidebar */
+        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: black; /* Black */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 20px;
+        margin-top: 50px;
+        font-family:'Times New Roman', Times, serif;
+        
+    }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+
+            /* When you mouse over the navigation links, change their color */
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
     .text-color {
         text-decoration-color: darkgray;
         color: gray;
         text-decoration-line: none;
-        font-size: 18px;
-        margin-top: 15px;
+        font-size: 20px;
+        margin-top: 10px;
     }
+
+        .text-color:hover {
+            color: #f1f1f1;
+        }
 </style>
+
 <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+   
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
@@ -20,13 +50,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="~/Home/Index"> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
+            <a href="~/Home/Index"> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:20px;"></a>
             @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "text-color" })
             &emsp;
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li align="right" class="dropdown" style="margin-left:500px;">
+
+                @*<li>@Html.ActionLink("SPORTS", "Sports", "SPORTS")</li>
+                    <li>@Html.ActionLink("CULTURALS", "Culturals", "CULTURALS")</li>*@
+
+                <li align="right" class="dropdown" style="margin-left:1000px;">
                     <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>@Session["username"]<span class="caret"></span>
                     </a>
@@ -38,48 +72,98 @@
             </ul>
         </div>
     </div>
+
+@*<div id="Wrapper" style="display:inline-flex";>
+        <ul>
+            <li>
+                 @Html.ActionLink("View Admin Portal", "AdminViewPortal", "Admin")
+            </li>
+            <li class="dropdown" >
+                <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon" aria-hidden="true"></span>Create an Event<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><input type="submit" id="1" value="Create a sport tournament." /></li>
+                    <li><input type="submit" id="2" value="Create a cultural event." /></li>
+                </ul>
+            </li>
+            <li><input type="submit" id="3" value="Create Fixture" /></li>
+        </ul>
+    </div>
+
+    <div id="divPartialView" style="display:inline-flex; margin-left:300px">
+        <h3>
+            Partial View 1
+        </h3>
+    </div>*@
+
+<div class="sidenav">
+    <ul style="list-style-type:none">
+        <li ><a href="~/Admin/AdminViewPortal">View</a></li>
+
+        <li class="dropdown ">
+            <a href="index.html" class=" dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon" aria-hidden="true">Events</span><span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><input type="submit" id="1" value="Create a sport tournament." /></li>
+                <li><input type="submit" id="2" value="Create a cultural event." /></li>
+            </ul>
+        </li>
+        <li>
+            <a href="~/Admin/CreateTeam">Fixture</a>
+        </li>
+
+        <li>
+
+        </li>
+    </ul>
 </div>
 
-
-
-
-<h2>AdminLogin</h2>
-
-@Html.ActionLink("View Admin Portal", "AdminViewPortal", "Admin")
-
-<table>
-    <tr>
-        <td>
-           
-                <input type="submit" id="1" value="Create a sport tournament." />
-            
-        </td>
-        <td>
-           
-                <input type="submit" id="2" value="Create a cultural event." />
-            
-        </td>
-    </tr>
-</table>
-
-<div id="divPartialView1" style="display:inline-flex">
+<div id="divPartialView" style="display:inline-flex; margin-left:300px">
     <h3>
         Partial View 1
     </h3>
 </div>
 
-<div id="divPartialView2" style="display:inline-flex">
-    <h3>
-        Partial View 2
-    </h3>
-</div>
+@*@Html.ActionLink("View Admin Portal", "AdminViewPortal", "Admin")
+
+        <table>
+            <tr>
+                <td>
+
+                    <input type="submit" id="1" value="Create a sport tournament." />
+
+                </td>
+                <td>
+
+                    <input type="submit" id="2" value="Create Fixture" />
+
+                </td>
+                <td>
+
+                    <input type="submit" id="3" value="Create a cultural event." />
+
+                </td>
+            </tr>
+        </table>
+
+        <div id="divPartialView" style="display:inline-flex">
+            <h3>
+                Partial View 1
+            </h3>
+        </div>
+
+
+    </body>*@
+
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
         $("#1").click(function () {
-           
+
             alert("Blah1")
 
             $.ajax({
@@ -87,14 +171,14 @@
                 url: "/Home/_AdminSport",
                 contentType: "html",
                 success: function (response) {
-                  
-                    $("#divPartialView1").empty();
-                    $("#divPartialView1").append(response);
+
+                    $("#divPartialView").empty();
+                    $("#divPartialView").append(response);
                 }
             })
         })
         $("#2").click(function () {
-         
+
             alert("Blah2")
 
             $.ajax({
@@ -102,9 +186,9 @@
                 url: "/Home/_AdminCultural",
                 contentType: "html",
                 success: function (response) {
-      
-                    $("#divPartialView2").empty();
-                    $("#divPartialView2").append(response);
+
+                    $("#divPartialView").empty();
+                    $("#divPartialView").append(response);
                 }
             })
         })

@@ -56,8 +56,8 @@ namespace Project.Controllers
             admin.admin_fullname && u.admin_password == admin.admin_password);
 
             if (isValidUser)
-            {   
-                
+            {
+                    Session["username"] = admin.admin_fullname;
                 System.Web.Security.FormsAuthentication.SetAuthCookie(admin.admin_fullname, false);             
                 return RedirectToAction("AdminLogin", "Home");
             }

@@ -50,11 +50,11 @@ namespace Project.Controllers
 
         }
 
-        public ActionResult CreateTeam()
+        public PartialViewResult CreateTeam()
         {
             ViewBag.Sport = new SelectList(entity.Sport_tournamentlist, "sports_evid", "sport_name");
 
-            return View();
+            return PartialView();
         }
         public ActionResult _TotTeam(int Sid)
         {
