@@ -1,15 +1,12 @@
 ﻿@model Project.Models.Sport_tournamentlist
-
 @{
-    ViewBag.Title = "AdminSport";
+    Layout = null;
 }
 
-<h2>AdminSport</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Sport_tournamentlist</h4>
         <hr />
@@ -54,6 +51,3 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

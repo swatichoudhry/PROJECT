@@ -72,23 +72,25 @@ namespace Project.Controllers
 
         public ActionResult AdminLogin()
         {
+
             return View();
             
         }
-        [HttpPost]
-        public ActionResult AdminSport()
-        {
-           // TempData["Message"] = "You clicked Sports!";
-            return View();
-        }
-      
-        [HttpPost]
-        public ActionResult AdminCultural()
-        {
-            //TempData["Message"] = "You clicked Culturals!";
-            return View();
-        }
        
+        public PartialViewResult _AdminSport()
+        {
+            
+           
+            return PartialView();
+        }
+
+
+        public ActionResult _AdminCultural()
+        {
+
+            
+            return PartialView();
+        }
         public ActionResult Fixtures()
         {
             ViewBag.Sport = new SelectList(entity.Sport_tournamentlist, "sports_evid", "sport_name");

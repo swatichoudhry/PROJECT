@@ -1,6 +1,20 @@
-﻿
-<h3>Partial View</h3>
+﻿@*<head runat="server">
+    <title>Meta Tags Example</title>
+    <meta http-equiv="Refresh" content="5;url=" />
+</head>*@
+<body onload="script();">
 
-@ViewBag.Message
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+              
+            };
+        </script>
+    }
+</body>
 
-
+@{
+    Response.AddHeader("REFRESH", ".1;URL=/SPORTS/Sports");
+}

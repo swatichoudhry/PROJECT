@@ -1,15 +1,12 @@
 ﻿@model Project.Models.Cultural_eventlist
-
 @{
-    ViewBag.Title = "AdminCultural";
+    Layout = null;
 }
 
-<h2>AdminCultural</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Cultural_eventlist</h4>
         <hr />
@@ -54,6 +51,3 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

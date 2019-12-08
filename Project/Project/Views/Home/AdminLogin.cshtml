@@ -2,63 +2,114 @@
 @{
     ViewBag.Title = "AdminLogin";
 }
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-
-                </button>
-                @Html.ActionLink("DXC HAPPENINGS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-
-
-                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-                    <li>@Html.ActionLink("SPORTS", "TV", "Home")</li>
-                    <li>@Html.ActionLink("CULTURALS", "Movies", "Home")</li>
-
-                    <li align="right" class="dropdown" style="margin-left:500px;">
-                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> My Account<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="contactus.html#">User Name</a></li>
-                            <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
+<style>
+    .text-color {
+        text-decoration-color: darkgray;
+        color: gray;
+        text-decoration-line: none;
+        font-size: 18px;
+        margin-top: 15px;
+    }
+</style>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="~/Home/Index"> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
+            @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "text-color" })
+            &emsp;
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li align="right" class="dropdown" style="margin-left:500px;">
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>@Session["username"]<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("My Account", "UserLogin", "Home")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
+
+
+
+
 <h2>AdminLogin</h2>
 
-@Html.ActionLink("View Admin Portal","AdminViewPortal","Admin")
+@Html.ActionLink("View Admin Portal", "AdminViewPortal", "Admin")
+
 <table>
     <tr>
         <td>
-            @using (Html.BeginForm("AdminSport", "Home", FormMethod.Post))
-            {
+           
                 <input type="submit" id="1" value="Create a sport tournament." />
-            }
+            
         </td>
         <td>
-            @using (Html.BeginForm("AdminCultural", "Home", FormMethod.Post))
-            {
+           
                 <input type="submit" id="2" value="Create a cultural event." />
-            }
+            
         </td>
     </tr>
 </table>
 
-    <script type="text/javascript">
-        window.onload = function () {
-                
-            };
-    </script>
+<div id="divPartialView1" style="display:inline-flex">
+    <h3>
+        Partial View 1
+    </h3>
+</div>
+
+<div id="divPartialView2" style="display:inline-flex">
+    <h3>
+        Partial View 2
+    </h3>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#1").click(function () {
+           
+            alert("Blah1")
+
+            $.ajax({
+                type: "post",
+                url: "/Home/_AdminSport",
+                contentType: "html",
+                success: function (response) {
+                  
+                    $("#divPartialView1").empty();
+                    $("#divPartialView1").append(response);
+                }
+            })
+        })
+        $("#2").click(function () {
+         
+            alert("Blah2")
+
+            $.ajax({
+                type: "post",
+                url: "/Home/_AdminCultural",
+                contentType: "html",
+                success: function (response) {
+      
+                    $("#divPartialView2").empty();
+                    $("#divPartialView2").append(response);
+                }
+            })
+        })
+    })
+
+</script>
+
 

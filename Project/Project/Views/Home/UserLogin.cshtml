@@ -3,6 +3,17 @@
     ViewBag.Title = "UserLogin";
     
 }
+<style>
+     .text-color{
+        text-decoration-color:darkgray;
+        color:gray;
+        text-decoration-line:none;
+        font-size:18px;
+        margin-top:10px;
+        
+    }
+    
+</style>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -11,15 +22,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    
                 </button>
-                @Html.ActionLink("DXC HAPPENINGS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="~/Home/Index"> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>           
+                @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "text-color" })
+                &emsp;
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-
-
-                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                 
                     <li>@Html.ActionLink("SPORTS", "Sports", "SPORTS")</li>
                     <li>@Html.ActionLink("CULTURALS", "Culturals", "CULTURALS")</li>
 
@@ -33,10 +43,23 @@
                         </ul>
                     </li>                  
                 </ul>
-
             </div>
         </div>
    </div>
-<h3>Welcome, @Session["username"]</h3>
+
+
+<h3 style="text-align:center;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Welcome, @Session["username"]</h3>
+
+<div style="display:inline-flex">
+<a href="~/SPORTS/Sports">
+    <h3 style="color:black;margin-left:350px" >Sports</h3>
+    <img title="Sports" src="~/Images/sports (1).jpg" style="width:400px;height:500px;margin-left:200px"/>
+</a>
+<a href="~/CULTURALS/Culturals">
+    <h3 style="color:black;margin-left:350px">Culturals</h3>
+    <img title="Culturals" src="~/Images/culturals.jpg" style="width:400px;height:500px;margin-left:200px" />
+</a>
+
+    </div>
 
 

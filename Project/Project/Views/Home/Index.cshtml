@@ -24,6 +24,15 @@
     body{
         background-color:black;
     }
+    .text-color{
+        text-decoration-color:darkgray;
+        color:gray;
+        text-decoration-line:none;
+        font-size:18px;
+        margin-top:13px;
+        
+    }
+    
 </style>
 
 <title>DXC Happenings!</title>
@@ -34,8 +43,8 @@
     <div class="container">
         <div class="navbar-header" style="display:inline-flex;">
             <a href="~/Home/Index"> <img src="~/Images/download.png" style="width:60px;height:50px; margin-left:50px;"></a>
-            &emsp;
-            @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            &nbsp;
+            @Html.ActionLink("HAPPENINGS!", "Index", "Home", new { area = "" }, new { @class = "text-color" })
         </div>
         <div class="navbar-collapse collapse" style="display:inline-flex">
             <ul class="nav navbar-nav">

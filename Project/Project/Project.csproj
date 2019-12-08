@@ -193,12 +193,14 @@
     <Content Include="Images\basketball.jpg" />
     <Content Include="Images\bg-education.jpg" />
     <Content Include="Images\c806e1923c2d7dee2a3bcfdc4fef0404.jpg" />
+    <Content Include="Images\culturals.jpg" />
     <Content Include="Images\DanceSilhouette1.jpg" />
     <Content Include="Images\download.png" />
     <Content Include="Images\f73a8acac0e753aa9e1f4c321b54c21f--baskets-basketball.jpg" />
     <Content Include="Images\images.jpg" />
     <Content Include="Images\images2.png" />
     <Content Include="Images\pngtree-world-cup-soccer-match-poster-image_192903.jpg" />
+    <Content Include="Images\sports %281%29.jpg" />
     <Content Include="Images\table-tennis-design-entity-1320x720.jpg" />
     <Content Include="Images\tt.png" />
     <Content Include="Models\Model1.Context.tt">
@@ -262,9 +264,9 @@
     <Content Include="Views\Admin\ListofParticipants11.cshtml" />
     <Content Include="Views\Shared\DisplaySportsList.cshtml" />
     <Content Include="Views\CULTURALS\_mypartial.cshtml" />
-    <Content Include="Views\Home\AdminSport.cshtml" />
-    <Content Include="Views\Home\AdminCultural.cshtml" />
     <Content Include="Views\CULTURALS\addini.cshtml" />
+    <Content Include="Views\Home\_AdminSport.cshtml" />
+    <Content Include="Views\Home\_AdminCultural.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

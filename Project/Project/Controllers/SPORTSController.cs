@@ -34,10 +34,10 @@ namespace Project.Controllers
             team.sp_id = id;
             entity.Teams.Add(team);
             entity.SaveChanges();
-            return RedirectToAction("Sports");
+           return RedirectToAction("Sports");
         }
 
-        public PartialViewResult addini(int id)
+        public ActionResult addini(int id)
         {
             
 
@@ -48,7 +48,7 @@ namespace Project.Controllers
             
             if (entity.Sports_reg.Any(d => d.sport_id == id && d.userid == ew))
             {
-                ViewBag.Message = "Can't Register for same sport twice";
+                ViewBag.Message = "Cannot Register for same sport twice";
             }
             else
             {
@@ -57,11 +57,11 @@ namespace Project.Controllers
                 var av = entity.Sport_tournamentlist.Find(id);
                 sports_Reg.sport_name = av.sport_name;
                 entity.Sports_reg.Add(sports_Reg);
-                ViewBag.Message = "Registered!";
+                ViewBag.Message = "Registered";
                 entity.SaveChanges();
             }
 
-            return PartialView("addini");
+            return View();
         }
 
 

@@ -37,11 +37,10 @@
                     </td>
                     <td>
 
-                        @Html.ActionLink("Register as Team", "addteam", new { id = @item.sports_evid },new { @class = "GetResult"})
+                        @Html.ActionLink("Register as Team", "addteam", new { id = @item.sports_evid }, new { @class = "GetResult" })
 
-                        @Html.ActionLink("Register Individually", "addini", new { id = @item.sports_evid },new { @class = "GetResult"})
-
-
+                        @Html.ActionLink("Register Individually", "addini", new { id = @item.sports_evid },new { @class = "GetResult" })
+                       
                     </td>
                 </tr>
             }
@@ -49,6 +48,7 @@
         </table>
     </div>
 }
+
 
 
 
